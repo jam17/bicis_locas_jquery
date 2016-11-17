@@ -1,5 +1,4 @@
 
-
 function validateForm(){
 
 	function validarNombre(){
@@ -71,22 +70,29 @@ function validateForm(){
 
 		if(nombre.charAt(0) !== nombre.charAt(0).toUpperCase()){
 
-			var divContenedor=document.getElementsByClassName("name-container")[0];
+			/*var divContenedor=document.getElementsByClassName("name-container")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("La primera letra debe ser mayúscula");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="La primera letra debe ser mayúscula";
+			
+			var span=$("#name").parent().append("<span>" + mensajeError+ "</span>");
 
 			return false;
 		}
 
 		if(apellido.charAt(0) !== apellido.charAt(0).toUpperCase()){
 
-			var divContenedor=document.getElementsByClassName("lastname-container")[0];
+			/*var divContenedor=document.getElementsByClassName("lastname-container")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("La primera letra debe ser mayúscula");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="La primera letra debe ser mayúscula";
+			var span=$("#lastname").parent().append("<span>" + mensajeError+ "</span>");
+			
+
 
 			return false;
 		}
@@ -97,23 +103,29 @@ function validateForm(){
 
 	function validarCorreo(){
 		var valideMail= /\w+@\w+\.+[a-z]/; 
-		var correo=document.getElementById("input-email").value;
+		//var correo=document.getElementById("input-email").value;
+		var correo= $("#input-email").val();
 		if(correo.length==0){
-			var divContenedor=document.getElementsByClassName("email-container")[0];
+			/*var divContenedor=document.getElementsByClassName("email-container")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("Este campo no debe quedar vacío");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="Este campo no debe quedar vacío";
+			var span=$("#input-email").parent().append("<span>" + mensajeError+ "</span>");
 
 			return false;
 		}
 		if (!valideMail.test(correo)){
+			
 
-			var divContenedor=document.getElementsByClassName("email-container")[0];
+			/*var divContenedor=document.getElementsByClassName("email-container")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("Escriba un formato válido");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="Escriba un formato válido";
+			var span=$("#input-email").parent().append("<span>" + mensajeError+ "</span>");
 
 			return false;
 		}
@@ -122,22 +134,30 @@ function validateForm(){
 
 
 	function validarContrasena(){
-		var contrasena=document.getElementById("input-password").value;
+		  var contrasena= $("#input-password").val();
+		//var contrasena=document.getElementById("input-password").value;
 		if(contrasena.length==0){
-			var divContenedor=document.getElementsByClassName("form-group")[0];
+			/*var divContenedor=document.getElementsByClassName("form-group")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("Este campo no debe quedar vacío");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="Este campo no debe quedar vacío";
+			var span=$("#input-password").parent().append("<span>" + mensajeError+ "</span>");
 
 			return false;
-		}if(contrasena==="123456" ||  contrasena==="098754" || contrasena==="password" && contrasena.length<6){
+		}
 
-			var divContenedor=document.getElementsByClassName("form-group")[0];
+		if(contrasena==="123456" ||  contrasena==="098754" || contrasena==="password" && contrasena.length<6){
+
+			/*var divContenedor=document.getElementsByClassName("form-group")[0];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("Contraseña muy débil, debe cambiarla por una segura");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
-			divContenedor.appendChild(elemento);
+			divContenedor.appendChild(elemento);*/
+			var mensajeError="Contraseña muy débil, debe cambiarla por una segura";
+			var span=$("#input-password").parent().append("<span>" + mensajeError+ "</span>");
+
 
 			return false;
 		}
@@ -147,7 +167,9 @@ function validateForm(){
 
 
 	function validarSeleccion(){
+		//var seleccion= $("#input-password").val();
 		var seleccion=document.getElementsByTagName("select")[0].value;
+
 		if(seleccion ==0){
 			var divContenedor=document.getElementsByClassName("form-group")[1];
 			var elemento= document.createElement("span");
