@@ -167,16 +167,20 @@ function validateForm(){
 
 
 	function validarSeleccion(){
-		//var seleccion= $("#input-password").val();
-		var seleccion=document.getElementsByTagName("select")[0].value;
+		var seleccion= $("select").val();
+		//var seleccion=document.getElementsByTagName("select")[0].value;
 
 		if(seleccion ==0){
-			var divContenedor=document.getElementsByClassName("form-group")[1];
+
+			/*var divContenedor=document.getElementsByClassName("form-group")[1];
 			var elemento= document.createElement("span");
 			var nodoTexto=document.createTextNode("Debe elegir una bicicleta");
 			elemento.appendChild(nodoTexto);//elemento es padre de nodoTexto;
 			divContenedor.appendChild(elemento);
 
+			");*/
+			var mensajeError="Debe elegir una bicicleta";
+			var span=$("select").parent().append("<span>" + mensajeError+ "</span>");
 			return false;
 		}
 
